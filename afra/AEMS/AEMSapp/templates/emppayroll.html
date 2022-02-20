@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+</head>
+<body>
+    <div style="background-color: rgb(97, 6, 6);height: 700px;width: 1530;text-align: center;font-size: 40px;font-family: Georgia, 'Times New Roman', Times, serif;color: rgb(237, 230, 243);">
+        PAYROLL CALCULATION
+         <div class="row" style="height: 700px;padding: 20px;">
+           <div class="col-md-12" style="background-color: rgb(18, 19, 17);font-size: 30px;font-family: Georgia, 'Times New Roman', Times, serif;">
+            
+        <div style="font-size: 20px;margin-right: 450px;">
+            <form>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <label>Employee_id:</label>
+                        <input type="text">
+                       
+                   </div>
+                   <div class="col-lg-4">
+                        <label>Employee_name</label>
+                        <input type="text">
+                        
+                    </div>
+                    <div class="col-lg-4">
+                        <label>Basic_pay</label>
+                        <input type="number">
+                    </div>
+                </div>
+               </div>
+            </form>
+            <div class="row" style="font-size: 20px;margin-left: 50px;border: 1;border-color: chartreuse;">
+                <div class="col-lg-6">
+                    <label>HRA</label><br>
+                    <input type="text"  id="id1"><br>
+                    <label>TA</label><br>
+                    <input type="text" id="id2"><br>
+                    <label>DA</label><br>
+                    <input type="text" id="id3"><br><br>
+                 
+                   <label>total</label>
+                   <input type="text" id="result">
+                   <button onclick="add()">add</button>
+                
+                    
+
+
+                </div>
+                <div class="col-lg-6"><br>
+                    <label>IT</label><br>
+                    <input type="text" id="it"><br>
+                    <label>PF</label><br>
+                    <input type="text" id="pf"><br><br>
+                    <div>
+                    <label>Total</label>
+                    <input type="text" id="toatl"><br><br><br>
+                </div>
+                <div class="row" style="font-size: 20px;margin-left: 50px;">
+                    <div class="col-md-12">
+                        <label>Create Salary</label><br>
+                        <input type="number"><br>
+                        <label>Net salary</label><br>
+                        <input type="number"><br>
+                    </div>
+                </div>   
+                </div>
+            </div>
+            
+            <div style="padding-bottom: 25px;">
+            <button type="button" class="btn btn-success" style="margin-right: 50px;">APPLY</button>
+            <button type="button" class="btn btn-warning" style="margin-right: 50px;">CLEAR</button>
+            <button type="button" class="btn btn-danger" style="margin-right: 50px;">CANCEL</button>
+    
+        </div>
+    
+        </div>
+       </div>
+       
+        
+        
+            
+    </div>
+    <script>
+        function add(){
+            num1 = parseInt(document.getElementById("id1").value);
+            num2 = parseInt(document.getElementById("id2").value);
+            num3 = parseInt(document.getElementById("id3").value);
+            result = parseInt(num1) + parseInt(num2) + parseInt(num3);
+            document.getElementById("result").innerHTML = "result =" + result;
+        }
+       
+      
+       
+        
+
+
+
+    </script>
+
+    
+</body>
+</html>

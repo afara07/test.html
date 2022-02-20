@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="mystyle.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+<body>
+<div style="height: 700px;width: 1530px;background-image: url(https://www.insperity.com/wp-content/uploads/diverse_question1200x630.png);background-repeat: no-repeat;background-attachment: fixed;background-size: cover;text-align: center;font-size: 35px;padding-top: 200px;">
+   <form>
+            <label>Username</label><br>
+            <input type="text" id="username"><br>
+            <label>Password</label><br>
+            <input type="password" id="userpassword "><br>
+    </form>
+        
+   
+        <button type="button" class="btn btn-primary" onclick="checkvalid()">LOGIN</button>
+        <button type="button" class="btn btn-secondary">NEXT</button>
+   
+    </div>    
+</div>
+<script>
+    function checkvalid(){
+        satatus=1;
+        username = document.getElementById("username");
+        password = document.getElementById("userpassword");
+        if (username.value==""){
+        username.style.borderColor = "#FF0000";
+        status=0;
+        usererror.style.display = "block";
+        usererror.style.Color = "#FF0000";
+        usererror.innerHTML = "please enter a name"
+        }
+        else {
+             username.style.borderColor = "#ced4da";
+             usererror.style.display = "none";
+             status = 1;
+
+         }
+         if (password == ""){
+             password.style.borderColor = "#FF0000";
+             pswerror.style.display ="block";
+             pswerror.style.Color = "#FFF000";
+             pswerror.innerHTML = "pleae enter the password";
+             status = 0;
+         }
+         else {
+             password.style.borderColor ="#ced4da";
+             psweerror.style.display = "none";
+             status =1;
+
+         }
+         if (status ==0){
+             return false;
+         }
+    }
+</script>
+    
+</body>
+</html>
