@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+    <div style="background-color: aqua;height: 500px;width: 500px;text-align: center;">
+    <input type="text" name="product_name" placeholder="enter the product name"><br><br>
+    <input type="text" name="product_details" placeholder="enter the description"><br><br>
+    <input type="number" name="price" placeholder="enter the price"><br><br>
+    <input type="submit">
+</div>
+</form>
+</body>
+</html>

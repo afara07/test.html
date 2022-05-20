@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'AEMSapp'
+    'AEMSapp',
+    'departmentapp',
+    'myapp',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -59,6 +62,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR/'AEMSapp/templates',
+            BASE_DIR/'departmentapp/templates',
+            BASE_DIR/'myapp/templates'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -127,7 +132,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'AEMSapp/static')
+    os.path.join(BASE_DIR, 'AEMSapp/static'),
+    os.path.join(BASE_DIR, 'departmentapp/static'),
+    os.path.join(BASE_DIR, 'myapp/static')
 ]
 
 # Default primary key field type

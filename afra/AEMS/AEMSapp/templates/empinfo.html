@@ -7,50 +7,52 @@
     <title>Document</title>
     <link rel="stylesheet" href="mystyle.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <div style="background-color: rgb(97, 6, 6);height: 700px;width: 1530;text-align: center;font-size: 40px;font-family: Georgia, 'Times New Roman', Times, serif;color: rgb(237, 230, 243);">
+    <div style="background-color: midnightblue;height: 700px;width: 1530;text-align: center;font-size: 40px;font-family: Georgia, 'Times New Roman', Times, serif;color: rgb(7, 6, 7);">
     EMPLOYEE DETAILS
      <div class="row" style="height: 500px;padding: 30px;">
-       <div class="col-md-12" style="background-color: rgb(19, 20, 13);font-size: 30px;font-family: Georgia, 'Times New Roman', Times, serif;">
+       <div class="col-md-12" style="background-color: rgb(168, 181, 235);font-size: 30px;font-family: Georgia, 'Times New Roman', Times, serif;">
         
     <div style="font-size: 20px;margin-right: 450px;">
-        <form>
+       
             <div class="row">
                 <div class="col-lg-6">
-                    <label>Employee_id:</label><br>
-                    <input type="text"><br>
+                    {% csrf_token %} 
                     <label>Employee_name:</label><br>
-                    <input type="text"><br>
+                    <input type="text" id="name"><br>
                     <label>Password</label><br>
-                    <input type="password"><br>
+                    <input type="password" id="password"><br>
                     <label>Re-enter Password</label><br>
                     <input type="password"><br>
                     <label>Email-id</label><br>
-                    <input type="email">
+                    <input type="email" id="email">
                </div>
                <div class="col-lg-6" style="margin-bottom: 200px;">
                     <label>DOB</label><br>
-                    <input type="date"><br>
+                    <input type="date" id="DOB"><br>
                     <label>DOJ</label><br>
-                    <input type="date"><br>
+                    <input type="date" id="DOJ"><br>
                     <label>Department</label><br>
-                    <input type="text"><br>
+                    <input type="text" id="department"><br>
                     <label>Mobile</label><br>
-                    <input type="number"><br><br>
+                    <input type="number" id="mobile_number"><br><br>
                     <label>male</label> 
-                    <input type="radio" name="gender">
-                    <label>Female</label>
-                    <input type="radio" name="gender">
+                    <input type="radio" id="gender">
+                    <label>female</label>
+                    <input type="radio"id="gender">
+
+                    
+                    
                 </div>
             </div>
            </div>
-        </form>
+       
         <div style="padding-bottom: 25px;">
-        <button type="button" class="btn btn-success" style="margin-right: 50px;">APPLY</button>
-        <button type="button" class="btn btn-warning" style="margin-right: 50px;">CLEAR</button>
-        <button type="button" class="btn btn-danger" style="margin-right: 50px;">CANCEL</button>
+        <button type="button" onclick="info_insert()" class="btn btn-success" style="margin-right: 50px;">save</button>
+        <button type="button" class="btn btn-warning" style="margin-right: 50px;">delet</button>
+        <button type="button" class="btn btn-danger" style="margin-right: 50px;">update</button>
 
     </div>
 
@@ -61,6 +63,37 @@
     
         
 </div>
+<script>
+    function info_insert(){
+        nam = document.getElementById('name').value
+        pass = document.getElementById('password').value
+        email = document.getElementById('email').value
+        dod = document.getElementById('DOB').value
+        doj = document.getElementById('DOJ').value
+        depart = document.getElementById('department').value
+        mobile = document.getElementById('mobile_number').value
+        gender = document.getElementById('gender').value
+        console.log(gender)
+        $.ajax({
+            url:'insertinfo',
+            type:'post',
+            data:{
+                'name':nam,
+                'password' :pass,
+                'email':email,
+                'DOB':dod,
+                'DOJ':doj,
+                'department':depart,
+                'mobile_number': mobile,
+                'gender':gender,
+
+            },
+            success:function(response){
+                alert(response.message)
+            }
+        })
+    }
+</script>
     
 </body>
 </html>

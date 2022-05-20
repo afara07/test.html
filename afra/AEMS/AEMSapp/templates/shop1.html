@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="2">
+        <tr>
+        <th>product_name</th>
+        <th>product_description</th>
+        <th>price</th>
+        <th colspan="2">operations</th>
+        </tr>
+    {% for i in data %}
+        <tr>
+        <td>{{i.product_name}}</td>
+        <td>{{i.product_details}}</td>
+        <td>{{i.price}}</td>
+        <td><button><a href="delete_data1/{{i.id}}">delete</a></button></td>
+        <td><button type="submit">update</a></button></td>
+        
+    </tr>
+    {% endfor %}
+    </table>
+    
+</body>
+</html>

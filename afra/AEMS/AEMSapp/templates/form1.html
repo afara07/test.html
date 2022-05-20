@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <input type="text" placeholder="enter your name" id="name"><br>
+    <input type="=text" placeholder="enter your address" id="address"><br>
+    <input type="text" placeholder="enter your place" id="place"><br>
+    <input type="number" placeholder="enter your age" id="age">  <br>
+    <button onclick="insert()" id="button">submit</button>
+    
+    <script>
+        function insert(){
+           name = document.getElementById('name').value
+           address = document.getElementById('address').value
+           place = document.getElementById('place').value
+           age = document.getElementById('age').value
+           $.ajax({
+               url:'form',
+               type:'post',
+               data:{
+                   'name':name,
+                   'address':address,
+                   'place':place,
+                   'age':age,
+               },
+               success:function(response){
+                   alert(response.message)
+               }
+            
+
+           })
+
+        }
+        $(document).ready(()=>{
+          console.log('ready');
+          $('#name').change(()=>{
+              $.ajax({
+                  url:'check_exist1',
+                  type:'post',
+                  data:{
+                      'name':$('#name').val()
+
+                  },
+                  success:function(response){
+                      if (response.message==true){
+                          alert('user already exist')
+                      $('#button').prop('disabled',true)
+                      
+                      }
+                      else{
+                        $('#button').prop('disabled',false)
+                      }
+                  }
+              })
+          })
+        })
+
+    </script>
+</body>
+</html>
